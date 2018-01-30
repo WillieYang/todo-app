@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <todo-list></todo-list>
+    <todo-list v-bind:todos="todos"></todo-list>
   </div>
 </template>
 
@@ -12,6 +12,23 @@ export default {
   name: 'App',
   components: {
     TodoList,
+  },
+  data() {
+    return {
+      todos: [{
+        title: 'Todo A',
+        project: 'Project A',
+        done: false,
+      }, {
+        title: 'Todo B',
+        project: 'Project B',
+        done: true,
+      }, {
+        title: 'Todo C',
+        Project: 'Project C',
+        done: false,
+      }],
+    };
   },
 };
 </script>
