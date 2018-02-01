@@ -33,10 +33,14 @@
         </div>
       </div>
     </div>
-    <div class="ui bottom attached green basic button" v-show="todo.done">
+    <div class="ui bottom attached green basic button"
+      v-on:click="incompleteTodo(todo)"
+      v-show="todo.done">
       Completed
     </div>
-    <div class="ui bottom attached red basic button" v-show="!todo.done">
+    <div class="ui bottom attached red basic button"
+      v-on:click="completeTodo(todo)"
+      v-show="!todo.done">
       Complete
     </div>
   </div>
@@ -60,6 +64,12 @@ export default {
     },
     deleteTodo(todo) {
       this.$emit('delete-todo', todo);
+    },
+    completeTodo(todo) {
+      this.$emit('complete-todo', todo);
+    },
+    incompleteTodo(todo) {
+      this.$emit('incomplete-todo', todo);
     },
   },
 };
