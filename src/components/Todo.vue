@@ -19,6 +19,10 @@
     <div class="content" v-show="isEditing">
       <div class="ui form">
         <div class="field">
+          <label>Title</label>
+          <input type="text" v-model="todo.title"/>
+        </div>
+        <div class="field">
           <label>Project</label>
           <input type="text" v-model="todo.project"/>
         </div>
