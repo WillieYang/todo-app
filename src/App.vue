@@ -1,44 +1,18 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <todo-list v-bind:todos="todos"></todo-list>
-    <create-todo v-on:add-todo="addTodo"></create-todo>
+    <img src="./assets/logo.png">
+    <!--<todo-list v-bind:todos="todos"></todo-list>-->
+    <!--<create-todo v-on:add-todo="addTodo"></create-todo>-->
+    <router-link v-bind:to="'hello'">HelloWorld</router-link>
+    <router-link v-bind:to="'todo'">TodoApp</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList';
-import CreateTodo from './components/CreateTodo';
 
 export default {
   name: 'App',
-  components: {
-    TodoList,
-    CreateTodo,
-  },
-  data() {
-    return {
-      todos: [{
-        title: 'Todo A',
-        project: 'Project A',
-        done: false,
-      }, {
-        title: 'Todo B',
-        project: 'Project B',
-        done: true,
-      }, {
-        title: 'Todo C',
-        project: 'Project C',
-        done: false,
-      }],
-    };
-  },
-  methods: {
-    addTodo(todo) {
-      console.log(todo);
-      this.todos.push(todo);
-    },
-  },
 };
 </script>
 

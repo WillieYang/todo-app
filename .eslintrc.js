@@ -31,6 +31,7 @@ module.exports = {
       vue: 'never'
     }],
     "no-console":0,
+    "linebreak-style": 0,
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
     'no-param-reassign': ['error', {
