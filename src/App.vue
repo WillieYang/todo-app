@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <!--<todo-list v-bind:todos="todos"></todo-list>-->
-    <!--<create-todo v-on:add-todo="addTodo"></create-todo>-->
+    <br/>
+    <router-link v-bind:to="'/'">HomePage</router-link>
     <router-link v-bind:to="'hello'">HelloWorld</router-link>
     <router-link v-bind:to="'todo'">TodoApp</router-link>
     <router-view></router-view>
   </div>
+
 </template>
 
 <script>
