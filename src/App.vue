@@ -3,8 +3,10 @@
     <img src="./assets/logo.png">
     <br/>
     <router-link v-bind:to="'/'">HomePage</router-link>
-    <router-link v-bind:to="'hello'">HelloWorld</router-link>
-    <router-link v-bind:to="'todo'">TodoApp</router-link>
+    <router-link v-bind:to="'/hello'">HelloWorld</router-link>
+    <router-link v-bind:to="'/todo'">TodoApp</router-link>
+    <router-link v-bind:to="'/coins/ethereum'">Ethereum</router-link>
+    <router-link v-bind:to="'/coins/bitcoin'">Bitcoin</router-link>
     <router-view></router-view>
   </div>
 
