@@ -1,15 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <br/>
-    <router-link v-bind:to="'/'">HomePage</router-link>
-    <router-link v-bind:to="'/hello'">HelloWorld</router-link>
-    <router-link v-bind:to="'/todo'">TodoApp</router-link>
-    <router-link v-bind:to="'/coins/ethereum'">Ethereum</router-link>
-    <router-link v-bind:to="'/coins/bitcoin'">Bitcoin</router-link>
+    <b-navbar toggleable="md" type="dark" variant="danger" fixed="top">
+      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+      <b-navbar-brand to="/">Mirror
+        <img src="./assets/logo.png" style="width:20px; height: 20px"> Land
+      </b-navbar-brand>
+      <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav>
+          <b-nav-item to="/hello" type="dark">HelloWorld</b-nav-item>
+          <b-nav-item to="/todo">TodoApp</b-nav-item>
+          <b-nav-item to="/coins">CrytoCoins</b-nav-item>
+          <!--<b-nav-item to="/coins/ethereum">Ethereum</b-nav-item>-->
+          <!--<b-nav-item to="/coins/bitcoin">Bitcoin</b-nav-item>-->
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <!--<router-link v-bind:to="'/'">HomePage</router-link>-->
+    <!--<router-link v-bind:to="'/hello'">HelloWorld</router-link>-->
+    <!--<router-link v-bind:to="'/todo'">TodoApp</router-link>-->
+    <!--<router-link v-bind:to="'/coins/ethereum'">Ethereum</router-link>-->
+    <!--<router-link v-bind:to="'/coins/bitcoin'">Bitcoin</router-link>-->
     <router-view></router-view>
   </div>
-
 </template>
 
 <script>
