@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
-import TodoApp from '@/components/TodoApp';
+import TodoApp from '@/components/todo/TodoApp';
 import HomePage from '@/components/HomePage';
-import Coins from '@/components/CrytoCoins';
-import Coin from '@/components/Coins';
+import Coins from '@/components/crytoCoin/CrytoCoins';
+import Coin from '@/components/crytoCoin/Coin';
 
 Vue.use(Router);
 

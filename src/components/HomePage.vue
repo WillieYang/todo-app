@@ -5,8 +5,8 @@
         <p class="text-dark">{{ msg }}</p>
         <b-btn variant="info" href="#" v-b-modal.modal1>More Info</b-btn>
       </b-jumbotron>
-      <b-modal id="modal1" title="Bootstrap-vue">
-        <p>Hello from modal!</p>
+      <b-modal id="modal1" title="Mirror Land" ok-variant="info">
+        <p>Hello World!</p>
       </b-modal>
     </div>
   </div>
