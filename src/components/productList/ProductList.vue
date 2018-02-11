@@ -1,7 +1,7 @@
 <template>
   <div id="product-list">
-    <product-list-one v-bind:products="products"></product-list-one>
-    <product-list-two v-bind:products="products"></product-list-two>
+    <product-list-one></product-list-one>
+    <product-list-two></product-list-two>
   </div>
 </template>
 
@@ -15,10 +15,6 @@ export default {
     ProductListTwo,
   },
   name: 'product-list',
-  data() {
-    return {
-    };
-  },
 };
 </script>
 

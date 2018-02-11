@@ -11,9 +11,16 @@
 </template>
 
 <script>
+/**
+ * @param {{$store:string}} data
+ */
 export default {
   name: 'product-list-one',
-  props: ['products'],
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+  },
 };
 </script>
 
