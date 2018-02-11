@@ -5,6 +5,7 @@ import TodoApp from '@/components/todo/TodoApp';
 import HomePage from '@/components/HomePage';
 import Coins from '@/components/crytoCoin/CrytoCoins';
 import Coin from '@/components/crytoCoin/Coin';
+import ProductList from '@/components/productList/ProductList';
 
 Vue.use(Router);
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/coins/:id',
       name: 'Coin',
       component: Coin,
+    },
+    {
+      path: '/productList',
+      name: 'ProductList',
+      component: ProductList,
     },
   ],
 });
