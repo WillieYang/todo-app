@@ -33,16 +33,17 @@ module.exports = {
     "no-console":0,
     "linebreak-style": 0,
     "quote-props": 0,
+    "no-param-reassign": 0,
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
-    }],
+    // 'no-param-reassign': ['error', {
+    //   props: true,
+    //   ignorePropertyModificationsFor: [
+    //     'state', // for vuex state
+    //     'acc', // for reduce accumulators
+    //     'e' // for e.returnvalue
+    //   ]
+    // }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']
