@@ -15,20 +15,23 @@
 /**
  * @param {{$store:string}} data
  */
+import { mapGetters, mapActions } from 'vuex';
+// import mapActions from 'vuex';
+
 export default {
   name: 'product-list-one',
   computed: {
     products() {
       return this.$store.state.products;
     },
-    saleProducts() {
-      return this.$store.getters.saleProducts;
-    },
+    ...mapGetters([
+      'saleProducts',
+    ]),
   },
   methods: {
-    reducePrice(amount) {
-      this.$store.dispatch('reducePrice', amount);
-    },
+    ...mapActions([
+      'reducePrice',
+    ]),
   },
 };
 </script>
