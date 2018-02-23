@@ -7,10 +7,41 @@ Vue.use(VueI18n);
 
 const locale = 'cn';
 
+const dateTimeFormats = {
+  'en-US': {
+    short: {
+      year: 'numeric', month: 'short', day: 'numeric',
+    },
+    long: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+    },
+  },
+  'ja-JP': {
+    short: {
+      year: 'numeric', month: 'short', day: 'numeric',
+    },
+    long: {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    },
+  },
+};
+
 const messages = { cn, en };
 
 const i18n = new VueI18n({
   locale,
+  dateTimeFormats,
   messages,
 });
 

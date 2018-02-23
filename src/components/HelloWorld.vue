@@ -2,7 +2,8 @@
   <div class="hello">
 
     <h1>{{ $t('welcomeApp') }}</h1>
-    <h2>{{ $t('hello') }}</h2>
+    <h2 v-html="$t('hello')"></h2>
+    <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
     <h2>Essential Links</h2>
     <ul>
       <li>
