@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App';
 import router from './router';
 import store from './store/store';
+import i18n from './lang/lang';
 
 Vue.config.productionTip = false;
 
@@ -17,6 +18,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   components: { App },
   template: '<App/>',
 });
