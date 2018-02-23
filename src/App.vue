@@ -14,6 +14,9 @@
           <!--<b-nav-item to="/coins/ethereum">Ethereum</b-nav-item>-->
           <!--<b-nav-item to="/coins/bitcoin">Bitcoin</b-nav-item>-->
         </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+          <b-button v-on:click="switchLocale" variant="success" size="sm">Language</b-button>
+        </b-navbar-nav>
       </b-collapse>
     </b-navbar>
     <!--<router-link v-bind:to="'/'">HomePage</router-link>-->
@@ -26,9 +29,17 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
+  methods: {
+    switchLocale() {
+      if (this.$i18n.locale === 'en') {
+        this.$i18n.locale = 'cn';
+      } else if (this.$i18n.locale === 'cn') {
+        this.$i18n.locale = 'en';
+      }
+    },
+  },
 };
 </script>
 
