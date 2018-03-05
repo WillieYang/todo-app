@@ -6,6 +6,7 @@ import HomePage from '@/components/HomePage';
 import Coins from '@/components/crytoCoin/CrytoCoins';
 import Coin from '@/components/crytoCoin/Coin';
 import ProductList from '@/components/productList/ProductList';
+import SignUp from '@/components/Authentication/SignUp';
 
 Vue.use(Router);
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/productList',
       name: 'ProductList',
       component: ProductList,
+    },
+    {
+      path: '/signUp',
+      name: 'SignUp',
+      component: SignUp,
     },
   ],
 });

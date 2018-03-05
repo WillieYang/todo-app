@@ -11,6 +11,7 @@
           <b-nav-item to="/todo">TodoApp</b-nav-item>
           <b-nav-item to="/coins">CrytoCoins</b-nav-item>
           <b-nav-item to="/productList">PlayList</b-nav-item>
+          <b-nav-item to="/signUp">Sign Up</b-nav-item>
           <!--<b-nav-item to="/coins/ethereum">Ethereum</b-nav-item>-->
           <!--<b-nav-item to="/coins/bitcoin">Bitcoin</b-nav-item>-->
         </b-navbar-nav>
