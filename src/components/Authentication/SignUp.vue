@@ -8,51 +8,54 @@
             <h2>Step 1</h2>
             <b-form-group id="firstName"
                           label="First Name:" class="text-left"
-                          label-for="firstNameLabel"
-                          description="Please Input Your First Name">
+                          label-for="firstNameLabel">
               <b-form-input id="inputFirstName"
                             type="text"
                             v-model="userInfo.firstName"
-                            required
-                            placeholder="Input FirstName">
+                            placeholder="Please Input Your First Name"
+                            @input="$v.userInfo.firstName.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.firstName.required && $v.$dirty">
+                First Name is required</pre>
+              <pre class="text-left text-danger"
+                    v-if="!$v.userInfo.firstName.minLength">
+                Name must have at least {{$v.userInfo.firstName.$params.minLength.min}} letters.
+              </pre>
             </b-form-group>
             <b-form-group id="lastName"
                           label="Last Name:" class="text-left"
-                          label-for="lastNameLabel"
-                          description="Please Input Your Last Name">
+                          label-for="lastNameLabel">
               <b-form-input id="inputLastName"
                             type="text"
                             v-model="userInfo.lastName"
                             required
-                            placeholder="Input LastName">
+                            placeholder="Please Input Your Last Name">
               </b-form-input>
             </b-form-group>
             <b-form-group id="username"
                           label="Username:" class="text-left"
-                          label-for="lastNameLabel"
-                          description="Please Input Your Username">
+                          label-for="lastNameLabel">
               <b-form-input id="inputUsername"
                             type="text"
                             v-model="userInfo.username"
                             required
-                            placeholder="Input Username">
+                            placeholder="Please Input Your Username">
               </b-form-input>
             </b-form-group>
-            <b-button type="reset" variant="danger">Reset</b-button>
-            <b-button @click="onNext" variant="primary">Next</b-button>
+            <b-button variant="danger">Reset</b-button>
+            <b-button @click="onNext" variant="info">Next</b-button>
           </div>
           <div v-show="step === 2">
             <h2>Step 2</h2>
             <b-form-group id="email"
                           label="Email Address:" class="text-left"
-                          label-for="emailAddressLabel"
-                          description="Please Input Your Email Address">
+                          label-for="emailAddressLabel">
               <b-form-input id="inputEmailAddress"
                             type="email"
                             v-model="userInfo.email"
                             required
-                            placeholder="Input EmailAddress">
+                            placeholder="Please Input Your Email Address">
               </b-form-input>
             </b-form-group>
             <b-form-group id="password"
@@ -89,6 +92,8 @@
 </template>
 
 <script>
+import { required, minLength } from 'vuelidate/lib/validators';
+
 export default {
   name: 'sign-up',
   data() {
@@ -103,6 +108,14 @@ export default {
         confirmPassword: '',
       },
     };
+  },
+  validations: {
+    userInfo: {
+      firstName: {
+        required,
+        minLength: minLength(4),
+      },
+    },
   },
   methods: {
     onSubmit(evt) {
@@ -134,7 +147,13 @@ export default {
   },
 };
 </script>
-
+  pre {
+text-align: left;
+white-space: pre-line;
+}
 <style scoped>
-
+pre {
+  text-align: left;
+  white-space: pre-line;
+}
 </style>
