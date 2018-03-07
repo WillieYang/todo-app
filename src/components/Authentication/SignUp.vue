@@ -91,6 +91,7 @@
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators';
+import maxMin from '@/Validators/test-validators';
 
 export default {
   name: 'sign-up',
@@ -112,6 +113,9 @@ export default {
       firstName: {
         required,
         minLength: minLength(4),
+      },
+      lastName: {
+        maxMin,
       },
     },
   },
