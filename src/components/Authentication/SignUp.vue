@@ -115,7 +115,8 @@ export default {
         minLength: minLength(4),
       },
       lastName: {
-        maxMin,
+        required,
+        maxMin: maxMin(2, 4),
       },
     },
   },
