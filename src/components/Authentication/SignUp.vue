@@ -4,7 +4,7 @@
       <b-col></b-col>
       <b-col>
         <b-form name="signUp" @submit="onSubmit" @reset="onReset">
-          <div v-show="step === 1">
+          <div v-if="step === 1">
             <h2>Step 1</h2>
             <b-form-group id="firstName"
                           label="First Name:" class="text-left"
@@ -43,10 +43,10 @@
                             placeholder="Please Input Your Username">
               </b-form-input>
             </b-form-group>
-            <b-button variant="danger">Reset</b-button>
+            <b-button type="reset" variant="danger">Reset</b-button>
             <b-button @click="onNext" variant="info">Next</b-button>
           </div>
-          <div v-show="step === 2">
+          <div v-if="step === 2">
             <h2>Step 2</h2>
             <b-form-group id="email"
                           label="Email Address:" class="text-left"
@@ -60,24 +60,22 @@
             </b-form-group>
             <b-form-group id="password"
                           label="Password:" class="text-left"
-                          label-for="passwordLabel"
-                          description="Please Input Your Password">
+                          label-for="passwordLabel">
               <b-form-input id="inputPassword"
                             type="password"
                             v-model="userInfo.password"
                             required
-                            placeholder="Input Password">
+                            placeholder="Please Input Your Password">
               </b-form-input>
             </b-form-group>
             <b-form-group id="ConfirmedPassword"
                           label="Confirm Password:" class="text-left"
-                          label-for="lastNameLabel"
-                          description="Please Confirm Your Password">
+                          label-for="lastNameLabel">
               <b-form-input id="inputConfirmedPassword"
                             type="password"
                             v-model="userInfo.confirmPassword"
                             required
-                            placeholder="Input Confirmed Password">
+                            placeholder="Please Confirm Your Password">
               </b-form-input>
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
