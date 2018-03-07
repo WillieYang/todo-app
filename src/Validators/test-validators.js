@@ -5,3 +5,4 @@ const maxMin = (min, max) =>
     !req(value) || ((!/\s/.test(value) || value instanceof Date) && +min <= +value && +max >= +value));
 
 export { maxMin as default };
+
