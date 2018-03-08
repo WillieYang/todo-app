@@ -13,14 +13,15 @@
                             type="text"
                             v-model="userInfo.firstName"
                             placeholder="Please Input Your First Name"
-                            @input="$v.userInfo.firstName.$touch()">
+                            @change="$v.userInfo.firstName.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
-                   v-if="!$v.userInfo.firstName.required && $v.$dirty">
+                   v-if="!$v.userInfo.firstName.required && $v.userInfo.firstName.$dirty">
                 First Name is required</pre>
               <pre class="text-left text-danger"
                     v-if="!$v.userInfo.firstName.minLength">
-                Name must have at least {{$v.userInfo.firstName.$params.minLength.min}} letters.
+                First Name must have at least
+                {{$v.userInfo.firstName.$params.minLength.min}} letters.
               </pre>
             </b-form-group>
             <b-form-group id="lastName"
@@ -29,9 +30,16 @@
               <b-form-input id="inputLastName"
                             type="text"
                             v-model="userInfo.lastName"
-                            required
-                            placeholder="Please Input Your Last Name">
+                            placeholder="Please Input Your Last Name"
+                            @change="$v.userInfo.lastName.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.lastName.required && $v.userInfo.lastName.$dirty">
+                Last Name is required</pre>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.lastName.minLength">
+                Surname must have at least {{$v.userInfo.lastName.$params.minLength.min}} letters.
+              </pre>
             </b-form-group>
             <b-form-group id="username"
                           label="Username:" class="text-left"
@@ -39,9 +47,16 @@
               <b-form-input id="inputUsername"
                             type="text"
                             v-model="userInfo.username"
-                            required
-                            placeholder="Please Input Your Username">
+                            placeholder="Please Input Your Username"
+                            @change="$v.userInfo.username.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.username.required && $v.userInfo.username.$dirty">
+                Username is required</pre>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.username.minLength">
+                Username must have at least {{$v.userInfo.username.$params.minLength.min}} letters.
+              </pre>
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
             <b-button @click="onNext" variant="info">Next</b-button>
@@ -54,9 +69,16 @@
               <b-form-input id="inputEmailAddress"
                             type="email"
                             v-model="userInfo.email"
-                            required
-                            placeholder="Please Input Your Email Address">
+                            placeholder="Please Input Your Email Address"
+                            @change="$v.userInfo.email.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.email.required && $v.userInfo.email.$dirty">
+                Email address is required</pre>
+              <pre class="text-left text-danger"
+                    v-if="!$v.userInfo.email.email">
+                Invalid email address, please try again!
+              </pre>
             </b-form-group>
             <b-form-group id="password"
                           label="Password:" class="text-left"
@@ -64,9 +86,16 @@
               <b-form-input id="inputPassword"
                             type="password"
                             v-model="userInfo.password"
-                            required
-                            placeholder="Please Input Your Password">
+                            placeholder="Please Input Your Password"
+                            @change="$v.userInfo.password.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.password.required && $v.userInfo.password.$dirty">
+                Password is required</pre>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.password.pwdLimit">
+                At least 8-16 letters and numbers, and the underscore combination @
+              </pre>
             </b-form-group>
             <b-form-group id="ConfirmedPassword"
                           label="Confirm Password:" class="text-left"
@@ -74,9 +103,17 @@
               <b-form-input id="inputConfirmedPassword"
                             type="password"
                             v-model="userInfo.confirmPassword"
-                            required
-                            placeholder="Please Confirm Your Password">
+                            placeholder="Please Confirm Your Password"
+                            @change="$v.userInfo.confirmPassword.$touch()">
               </b-form-input>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.confirmPassword.required
+                   && $v.userInfo.confirmPassword.$dirty">
+                Confirmed Password is required</pre>
+              <pre class="text-left text-danger"
+                   v-if="!$v.userInfo.confirmPassword.pwdLimit">
+                At least 8-16 letters and numbers, and the underscore combination @
+              </pre>
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
             <b-button @click="onPrevious" variant="info">Previous</b-button>
@@ -90,7 +127,7 @@
 </template>
 
 <script>
-import { required, minLength } from 'vuelidate/lib/validators';
+import { required, minLength, email } from 'vuelidate/lib/validators';
 import maxMin from '@/Validators/test-validators';
 import pwdLimit from '@/Validators/pwd-validators';
 
@@ -117,9 +154,24 @@ export default {
       },
       lastName: {
         required,
+        minLength: minLength(4),
         maxMin: maxMin(2, 4),
       },
       username: {
+        required,
+        minLength: minLength(6),
+        pwdLimit,
+      },
+      email: {
+        required,
+        email,
+      },
+      password: {
+        required,
+        pwdLimit,
+      },
+      confirmPassword: {
+        required,
         pwdLimit,
       },
     },
