@@ -107,12 +107,9 @@
                             @change="$v.userInfo.confirmPassword.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
-                   v-if="!$v.userInfo.confirmPassword.required
+                   v-if="!$v.userInfo.confirmPassword.sameAsPassword
                    && $v.userInfo.confirmPassword.$dirty">
-                Confirmed Password is required</pre>
-              <pre class="text-left text-danger"
-                   v-if="!$v.userInfo.confirmPassword.pwdLimit">
-                At least 8-16 letters and numbers, and the underscore combination @
+                Password does not match the confirm password
               </pre>
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
@@ -127,7 +124,7 @@
 </template>
 
 <script>
-import { required, minLength, email } from 'vuelidate/lib/validators';
+import { required, minLength, email, sameAs } from 'vuelidate/lib/validators';
 import maxMin from '@/Validators/test-validators';
 import pwdLimit from '@/Validators/pwd-validators';
 
@@ -171,8 +168,7 @@ export default {
         pwdLimit,
       },
       confirmPassword: {
-        required,
-        pwdLimit,
+        sameAsPassword: sameAs('password'),
       },
     },
   },
