@@ -125,7 +125,7 @@
 
 <script>
 import { required, minLength, email, sameAs } from 'vuelidate/lib/validators';
-import maxMin from '@/Validators/test-validators';
+// import maxMin from '@/Validators/test-validators';
 import pwdLimit from '@/Validators/pwd-validators';
 
 export default {
@@ -152,12 +152,10 @@ export default {
       lastName: {
         required,
         minLength: minLength(4),
-        maxMin: maxMin(2, 4),
       },
       username: {
         required,
         minLength: minLength(6),
-        pwdLimit,
       },
       email: {
         required,
