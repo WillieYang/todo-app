@@ -117,7 +117,7 @@
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
             <b-button @click="onPrevious" variant="info">Previous</b-button>
-            <b-button type="submit" variant="primary">Submit</b-button>
+            <b-button type="submit" variant="primary" :disabled="$v.$invalid">Submit</b-button>
           </div>
         </b-form>
       </b-col>
