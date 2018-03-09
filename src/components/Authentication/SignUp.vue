@@ -59,7 +59,10 @@
               </pre>
             </b-form-group>
             <b-button type="reset" variant="danger">Reset</b-button>
-            <b-button @click="onNext" variant="info">Next</b-button>
+            <b-button @click="onNext" variant="info"
+                      :disabled="$v.userInfo.firstName.$invalid
+                      || $v.userInfo.lastName.$invalid
+                      || $v.userInfo.username.$invalid">Next</b-button>
           </div>
           <div v-if="step === 2">
             <h2>Step 2</h2>
