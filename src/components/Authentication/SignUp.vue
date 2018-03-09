@@ -5,119 +5,123 @@
       <b-col>
         <b-form name="signUp" @submit="onSubmit" @reset="onReset">
           <div v-if="step === 1">
-            <h2>Step 1</h2>
+            <h2>{{ $t('step_1') }}</h2>
             <b-form-group id="firstName"
-                          label="First Name:" class="text-left"
+                          :label="$t('firstName')" class="text-left"
                           label-for="firstNameLabel">
               <b-form-input id="inputFirstName"
                             type="text"
                             v-model="userInfo.firstName"
-                            placeholder="Please Input Your First Name"
+                            :placeholder="$t('firstName_input')"
                             @change="$v.userInfo.firstName.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.firstName.required && $v.userInfo.firstName.$dirty">
-                First Name is required</pre>
+                {{ $t('firstName_required_msg') }}</pre>
               <pre class="text-left text-danger"
                     v-if="!$v.userInfo.firstName.minLength">
-                First Name must have at least
-                {{$v.userInfo.firstName.$params.minLength.min}} letters.
+                {{ $t('firstName_error_msg',
+                {minLength: $v.userInfo.firstName.$params.minLength.min})}}
               </pre>
             </b-form-group>
             <b-form-group id="lastName"
-                          label="Last Name:" class="text-left"
+                          :label="$t('lastName')" class="text-left"
                           label-for="lastNameLabel">
               <b-form-input id="inputLastName"
                             type="text"
                             v-model="userInfo.lastName"
-                            placeholder="Please Input Your Last Name"
+                            :placeholder="$t('lastName_input')"
                             @change="$v.userInfo.lastName.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.lastName.required && $v.userInfo.lastName.$dirty">
-                Last Name is required</pre>
+                {{ $t('lastName_required_msg') }}</pre>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.lastName.minLength">
-                Surname must have at least {{$v.userInfo.lastName.$params.minLength.min}} letters.
+                {{ $t('lastName_error_msg',
+                {minLength: $v.userInfo.lastName.$params.minLength.min})}}
               </pre>
             </b-form-group>
             <b-form-group id="username"
-                          label="Username:" class="text-left"
+                          :label="$t('username')" class="text-left"
                           label-for="lastNameLabel">
               <b-form-input id="inputUsername"
                             type="text"
                             v-model="userInfo.username"
-                            placeholder="Please Input Your Username"
+                            :placeholder="$t('username_input')"
                             @change="$v.userInfo.username.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.username.required && $v.userInfo.username.$dirty">
-                Username is required</pre>
+                {{ $t('username_required_msg') }}</pre>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.username.minLength">
-                Username must have at least {{$v.userInfo.username.$params.minLength.min}} letters.
+                {{ $t('username_error_msg',
+                {minLength: $v.userInfo.username.$params.minLength.min})}}
               </pre>
             </b-form-group>
-            <b-button type="reset" variant="danger">Reset</b-button>
+            <b-button type="reset" variant="danger">{{ $t('reset_button') }}</b-button>
             <b-button @click="onNext" variant="info"
                       :disabled="$v.userInfo.firstName.$invalid
                       || $v.userInfo.lastName.$invalid
-                      || $v.userInfo.username.$invalid">Next</b-button>
+                      || $v.userInfo.username.$invalid">{{ $t('next_button') }}</b-button>
           </div>
           <div v-if="step === 2">
-            <h2>Step 2</h2>
+            <h2>{{ $t('step_2') }}</h2>
             <b-form-group id="email"
-                          label="Email Address:" class="text-left"
+                          :label="$t('email')" class="text-left"
                           label-for="emailAddressLabel">
               <b-form-input id="inputEmailAddress"
                             type="email"
                             v-model="userInfo.email"
-                            placeholder="Please Input Your Email Address"
+                            :placeholder="$t('email_input')"
                             @change="$v.userInfo.email.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.email.required && $v.userInfo.email.$dirty">
-                Email address is required</pre>
+                {{ $t('email_required_msg') }}</pre>
               <pre class="text-left text-danger"
                     v-if="!$v.userInfo.email.email">
-                Invalid email address, please try again!
+                {{ $t('email_error_msg') }}
               </pre>
             </b-form-group>
             <b-form-group id="password"
-                          label="Password:" class="text-left"
+                          :label="$t('password')" class="text-left"
                           label-for="passwordLabel">
               <b-form-input id="inputPassword"
                             type="password"
                             v-model="userInfo.password"
-                            placeholder="Please Input Your Password"
+                            :placeholder="$t('password_input')"
                             @change="$v.userInfo.password.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.password.required && $v.userInfo.password.$dirty">
-                Password is required</pre>
+                {{ $t('password_required_msg') }}</pre>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.password.pwdLimit">
-                At least 8-16 letters and numbers, and the underscore combination @
+                {{ $t('password_error_msg') }}
               </pre>
             </b-form-group>
             <b-form-group id="ConfirmedPassword"
-                          label="Confirm Password:" class="text-left"
+                          :label="$t('confirmedPwd')" class="text-left"
                           label-for="lastNameLabel">
               <b-form-input id="inputConfirmedPassword"
                             type="password"
                             v-model="userInfo.confirmPassword"
-                            placeholder="Please Confirm Your Password"
+                            :placeholder="$t('confirmedPwd_input')"
                             @change="$v.userInfo.confirmPassword.$touch()">
               </b-form-input>
               <pre class="text-left text-danger"
                    v-if="!$v.userInfo.confirmPassword.sameAsPassword
                    && $v.userInfo.confirmPassword.$dirty">
-                Password does not match the confirm password
+                {{ $t('confirmedPwd_error_msg') }}
               </pre>
             </b-form-group>
-            <b-button type="reset" variant="danger">Reset</b-button>
-            <b-button @click="onPrevious" variant="info">Previous</b-button>
-            <b-button type="submit" variant="primary" :disabled="$v.$invalid">Submit</b-button>
+            <b-button type="reset" variant="danger">{{ $t('reset_button') }}</b-button>
+            <b-button @click="onPrevious" variant="info">{{ $t('previous_button') }}</b-button>
+            <b-button type="submit" variant="primary" :disabled="$v.$invalid">
+              {{ $t('submit_button') }}
+            </b-button>
           </div>
         </b-form>
       </b-col>

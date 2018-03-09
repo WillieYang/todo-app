@@ -5,7 +5,7 @@ import en from './data/en.json';
 
 Vue.use(VueI18n);
 
-const locale = 'cn';
+const locale = 'en';
 
 const dateTimeFormats = {
   'en-US': {
