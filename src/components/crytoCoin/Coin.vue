@@ -26,12 +26,14 @@ export default {
     fetchData() {
       let coinData = {};
       const that = this;
-      getCoin(this.$route.params.id, (data) => {
-        console.log(`data: ${JSON.stringify(data)}`);
+      const tmp = getCoin(this.$route.params.id, (data) => {
         coinData = data;
+        console.log(`coinData inside the function: ${JSON.stringify(coinData)}`);
         that.coin = coinData;
+        const getValue = () => data;
+        getValue();
       });
-      console.log(`res in fetchData: ${JSON.stringify(coinData)}`);
+      this.coin = tmp.getValue;
     },
   },
 };
