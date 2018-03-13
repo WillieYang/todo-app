@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import getCoin from '@/api/getCoin';
 
 export default {
   name: 'coins',
@@ -24,14 +24,14 @@ export default {
   },
   methods: {
     fetchData() {
-      axios.get(`https://api.coinmarketcap.com/v1/ticker/${this.$route.params.id}/`)
-        .then((res) => {
-          this.coin = res.data[0];
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      let coinData = {};
+      const that = this;
+      getCoin(this.$route.params.id, (data) => {
+        console.log(`data: ${JSON.stringify(data)}`);
+        coinData = data;
+        that.coin = coinData;
+      });
+      console.log(`res in fetchData: ${JSON.stringify(coinData)}`);
     },
   },
 };
