@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
+import echarts from 'echarts';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App';
@@ -11,6 +12,8 @@ import store from './store/store';
 import i18n from './lang/lang';
 
 Vue.config.productionTip = false;
+
+Vue.prototype.$echarts = echarts;
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
