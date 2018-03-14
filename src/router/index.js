@@ -7,6 +7,7 @@ import Coins from '@/components/crytoCoin/CrytoCoins';
 import Coin from '@/components/crytoCoin/Coin';
 import ProductList from '@/components/productList/ProductList';
 import SignUp from '@/components/Authentication/SignUp';
+import ECharts from '@/components/eCharts/ECharts';
 
 Vue.use(Router);
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/signUp',
       name: 'SignUp',
       component: SignUp,
+    },
+    {
+      path: '/echarts',
+      name: 'ECharts',
+      component: ECharts,
     },
   ],
 });
