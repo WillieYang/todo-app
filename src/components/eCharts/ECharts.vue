@@ -4,7 +4,14 @@
     <b-row>
       <b-col></b-col>
       <b-col>
-        <div id="e_chart" style="width: 600px; height: 400px;"></div>
+        <div id="bar_chart" style="width: 600px; height: 400px;"></div>
+      </b-col>
+      <b-col></b-col>
+    </b-row>
+    <b-row>
+      <b-col></b-col>
+      <b-col>
+        <div id="pie_chart" style="width: 650px; height: 400px;"></div>
       </b-col>
       <b-col></b-col>
     </b-row>
@@ -17,6 +24,18 @@ export default {
   data() {
     return {
       bar_data: [3, 30, 12, 27, 14],
+      pie_data: [{
+        value: 235, name: 'Software Engineering',
+      }, {
+        value: 274, name: 'Natural Language Processing',
+      }, {
+        value: 310, name: 'Web Development',
+      }, {
+        value: 335, name: 'Big Data',
+      }, {
+        value: 400, name: 'Machine Learning',
+      },
+      ],
     };
   },
   watch: {
@@ -29,10 +48,10 @@ export default {
   },
   methods: {
     draw_bar() {
-      const eChart = this.$echarts.init(document.getElementById('e_chart'));
+      const eChart = this.$echarts.init(document.getElementById('bar_chart'));
       const option = {
         title: {
-          text: 'First Examples for ECharts',
+          text: 'Bar Chart',
         },
         tooltip: {
           trigger: 'axis',
@@ -61,6 +80,37 @@ export default {
       };
       eChart.setOption(option);
     },
+    draw_pie() {
+      const eChart = this.$echarts.init(document.getElementById('pie_chart'));
+      const option = {
+        title: {
+          text: 'Pie Chart',
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)',
+        },
+        legend: {
+          orient: 'vertical',
+          x: 'right',
+          data: ['Software Engineering', 'Natural Language Processing', 'Web Development', 'Big Data', 'Machine Learning'],
+        },
+        series: [{
+          name: 'Categories',
+          type: 'pie',
+          radius: '55%',
+          data: this.pie_data,
+          roseType: 'angle',
+          itemStyle: {
+            normal: {
+              shadowBlur: 200,
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+            },
+          },
+        }],
+      };
+      eChart.setOption(option);
+    },
     changeData() {
       const that = this;
       setInterval(() => {
@@ -74,6 +124,7 @@ export default {
   },
   mounted() {
     this.draw_bar();
+    this.draw_pie();
     this.changeData();
   },
 };
