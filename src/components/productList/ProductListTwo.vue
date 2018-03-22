@@ -15,7 +15,8 @@ export default {
   name: 'product-list-two',
   computed: {
     products() {
-      return this.$store.state.products;
+      console.log(`Product List Two:${JSON.stringify(this.$store.state.products.products)}`);
+      return this.$store.state.products.products;
     },
   },
 };
