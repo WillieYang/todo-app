@@ -4,6 +4,7 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import echarts from 'echarts';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App';
@@ -14,6 +15,7 @@ import i18n from './lang/lang';
 Vue.config.productionTip = false;
 
 Vue.prototype.$echarts = echarts;
+Vue.prototype.$axios = axios;
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);

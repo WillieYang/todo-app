@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import getCoin from '@/api/getCoin';
+// import getCoin from '@/api/getCoin';
+import axiosGet from '@/api/config_sdk/get_sdk';
 
 export default {
   name: 'coins',
@@ -23,15 +24,12 @@ export default {
     '$route': 'fetchData',
   },
   methods: {
-    fetchData() {
-      let coinData = {};
-      const that = this;
-      getCoin(this.$route.params.id, (data) => {
-        console.log(`data: ${JSON.stringify(data)}`);
-        coinData = data;
-        that.coin = coinData;
-      });
-      console.log(`res in fetchData: ${JSON.stringify(coinData)}`);
+    async fetchData() {
+      // let coinData = {};
+      const res = await axiosGet(this.$route.params.id);
+      console.log(`Async and Await Trying: ${res}`);
+      this.coin = res.data[0];
+      console.log(`this: ${JSON.stringify(this.coin)}`);
     },
   },
 };
