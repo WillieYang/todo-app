@@ -8,7 +8,7 @@
 
 <script>
 // import getCoin from '@/api/getCoin';
-import axiosGet from '@/api/config_sdk/get_sdk';
+// import axiosGet from '@/api/config_sdk/get_sdk';
 
 export default {
   name: 'coins',
@@ -26,10 +26,13 @@ export default {
   methods: {
     async fetchData() {
       // let coinData = {};
-      const res = await axiosGet(this.$route.params.id);
-      console.log(`Async and Await Trying: ${res}`);
-      this.coin = res.data[0];
-      console.log(`this: ${JSON.stringify(this.coin)}`);
+      // const res = await axiosGet(this.$route.params.id);
+      // console.log(`Async and Await Trying: ${res}`);
+      // this.coin = res.data[0];
+      // console.log(`this: ${JSON.stringify(this.coin)}`);
+      const coinData = await this.$store.dispatch('axiosCoin', this.$route.params.id);
+      console.log(`Data in Getters ${JSON.stringify(coinData)}`);
+      this.coin = this.$store.getters.getCoin;
     },
   },
 };
