@@ -5,6 +5,8 @@ import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import echarts from 'echarts';
 import axios from 'axios';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import App from './App';
@@ -18,6 +20,7 @@ Vue.prototype.$echarts = echarts;
 Vue.prototype.$axios = axios;
 
 Vue.use(BootstrapVue);
+Vue.use(ElementUI);
 Vue.use(Vuelidate);
 
 /* eslint-disable no-new */
