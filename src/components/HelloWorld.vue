@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
 
-    <h1>{{ $t('welcomeApp') }}</h1>
-    <h2 v-html="$t('hello')"></h2>
+    <h1>{{ msg }}</h1>
+    <h2 v-html="t_hello"></h2>
     <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
     <h2>Essential Links</h2>
     <ul>
@@ -91,9 +91,13 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      hello: this.$t('hello'),
       msg: this.$t('welcomeApp'),
     };
+  },
+  computed: {
+    t_hello() {
+      return this.$t('hello');
+    },
   },
 };
 </script>
