@@ -15,13 +15,16 @@ export default {
   },
   methods: {
     getInfo() {
-      setInterval(() => {
-        this.$axios.get('http://zhuanti.3snews.net/index.php?m=wgdcpxvote&c=index&a=vote&ids=23')
-          .then((response) => {
-            console.log(response);
-            this.info = response;
-          });
-      }, (Math.floor(Math.random() * 50) + 1) * 1000);
+      const API = 'http://192.168.199.231:8888/gistack-producer/gcloud/sytem/info';
+      this.$axios({
+        method: 'get',
+        url: API,
+      }).then((response) => {
+        console.log(response);
+        this.info = response;
+      }).catch((error) => {
+        console.log(error);
+      });
     },
   },
 };

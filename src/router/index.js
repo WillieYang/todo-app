@@ -13,7 +13,7 @@ import Info from '@/components/gistack/Info';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/hello',

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
 
-    <h1>{{ msg }}</h1>
+    <h1>{{ t_msg }}</h1>
     <h2 v-html="t_hello"></h2>
     <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
     <h2>Essential Links</h2>
@@ -95,6 +95,9 @@ export default {
     };
   },
   computed: {
+    t_msg() {
+      return this.$t('welcomeApp');
+    },
     t_hello() {
       return this.$t('hello');
     },
