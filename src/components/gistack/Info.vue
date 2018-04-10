@@ -2,6 +2,7 @@
   <div>
     <h1>Info {{ info }}</h1>
     <b-button @click="getInfo" variant="danger">Click</b-button>
+    <b-button @click="saveData" variant="danger">Storage</b-button>
   </div>
 </template>
 
@@ -25,6 +26,9 @@ export default {
       }).catch((error) => {
         console.log(error);
       });
+    },
+    saveData() {
+      localStorage.setItem('Test', 'life');
     },
   },
 };
