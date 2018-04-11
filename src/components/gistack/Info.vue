@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>Info {{ info }}</h1>
+    <h1>Storage {{ storage }}</h1>
     <b-button @click="getInfo" variant="danger">Click</b-button>
-    <b-button @click="saveData" variant="danger">Storage</b-button>
+    <b-button @click="saveData" variant="danger">Set Storage</b-button>
+    <b-button @click="getData" variant="danger">get Storage</b-button>
+    <b-button @click="cleanData" variant="danger">clean Storage</b-button>
   </div>
 </template>
 
@@ -12,6 +15,7 @@ export default {
   data() {
     return {
       info: {},
+      storage: {},
     };
   },
   methods: {
@@ -28,7 +32,14 @@ export default {
       });
     },
     saveData() {
-      localStorage.setItem('Test', 'life');
+      sessionStorage.setItem('Test', 'life');
+    },
+    cleanData() {
+      sessionStorage.removeItem('Test');
+      this.storage = sessionStorage.getItem('Test');
+    },
+    getData() {
+      this.storage = sessionStorage.getItem('Test');
     },
   },
 };
