@@ -31,5 +31,6 @@
   "confirmedPwd_error_msg": "Password does not match the confirmed password",
   "previous_button": "Previous",
   "submit_button": "Submit",
-  "sign_up": "Sign Up"
+  "sign_up": "Sign Up",
+  "confirm_close": "Are you sure to close it"
 }

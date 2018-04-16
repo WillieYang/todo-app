@@ -31,5 +31,6 @@
   "confirmedPwd_error_msg": "输入的密码和确认密码不一致",
   "previous_button": "上一步",
   "submit_button": "提交",
-  "sign_up": "登录"
+  "sign_up": "登录",
+  "confirm_close": "确认关闭吗?"
 }

@@ -4,7 +4,9 @@
       <b-col></b-col>
       <b-col>
         <el-button type="primary" @click="modalVisible = true">{{ $t('sign_up') }}</el-button>
-        <el-dialog :title="$t('sign_up')" :visible.sync="modalVisible" width="30%">
+        <el-dialog
+          :title="$t('sign_up')" :visible.sync="modalVisible"
+          width="30%" :before-close="handleClose">
           <el-steps :active="step" finish-status="success" class="no_center">
             <el-step :title="$t('step_1')"></el-step>
             <el-step :title="$t('step_2')"></el-step>
@@ -210,6 +212,17 @@ export default {
     onPrevious(evt) {
       evt.preventDefault();
       this.step = this.step - 1;
+    },
+    handleClose(done) {
+      this.$confirm(this.$t('confirm_close'))
+        .then((_) => {
+          console.log(_);
+          done();
+        })
+        .catch((_) => {
+          console.log(_);
+        });
+      console.log(this.$confirm);
     },
   },
 };
