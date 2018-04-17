@@ -222,7 +222,6 @@ export default {
         .catch((_) => {
           console.log(_);
         });
-      console.log(this.$confirm);
     },
   },
 };

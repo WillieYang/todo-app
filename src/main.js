@@ -9,7 +9,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import locale from 'element-ui/lib/locale/lang/en';
+// import enLocale from 'element-ui/lib/locale/lang/en';
+// import zhLocale from 'element-ui/lib/locale/lang/zh-CN';
 import App from './App';
 import router from './router';
 import store from './store';
@@ -21,7 +22,7 @@ Vue.prototype.$echarts = echarts;
 Vue.prototype.$axios = axios;
 
 Vue.use(BootstrapVue);
-Vue.use(ElementUI, { locale });
+Vue.use(ElementUI);
 Vue.use(Vuelidate);
 
 /* eslint-disable no-new */
