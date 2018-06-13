@@ -14,6 +14,7 @@
           <b-nav-item to="/signUp">Sign Up</b-nav-item>
           <b-nav-item to="/echarts">ECharts</b-nav-item>
           <b-nav-item to="/info">Info</b-nav-item>
+          <b-nav-item to="/socketIO">SocketIO</b-nav-item>
           <!--<b-nav-item to="/coins/ethereum">Ethereum</b-nav-item>-->
           <!--<b-nav-item to="/coins/bitcoin">Bitcoin</b-nav-item>-->
         </b-navbar-nav>

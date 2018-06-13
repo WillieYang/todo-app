@@ -9,6 +9,7 @@ import ProductList from '@/components/productList/ProductList';
 import SignUp from '@/components/Authentication/SignUp';
 import ECharts from '@/components/eCharts/ECharts';
 import Info from '@/components/gistack/Info';
+import SocketIO from '@/components/socketIO/SocketChat';
 
 Vue.use(Router);
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/info',
       name: 'GistackInfo',
       component: Info,
+    },
+    {
+      path: '/socketIO',
+      name: 'SocketIO',
+      component: SocketIO,
     },
   ],
 });
