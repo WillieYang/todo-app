@@ -6,7 +6,9 @@
           <hr>
         </div>
         <div class="card-body">
-          <div class="messages"></div>
+          <div class="messages" v-for="(msg, index) in messages" :key="index">
+            <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
+          </div>
         </div>
       </div>
       <div class="card-footer">
@@ -39,6 +41,11 @@ export default {
       messages: [],
       socket: io('localhost:3001'),
     };
+  },
+  mounted() {
+    this.socket.on('MESSAGE', (data) => {
+      this.messages = [...this.messages, data];
+    });
   },
   methods: {
     sendMessage(e) {
