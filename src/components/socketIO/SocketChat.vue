@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <b-form @submit.prevent="sendmessage">
+        <b-form @submit.prevent="sendMessage">
           <b-form-group class="form-group"
                         label-for="user"
                         label="User:">
@@ -39,6 +39,16 @@ export default {
       messages: [],
       socket: io('localhost:3001'),
     };
+  },
+  methods: {
+    sendMessage(e) {
+      e.preventDefault();
+      this.socket.emit('SEND_MESSAGE', {
+        user: this.user,
+        message: this.message,
+      });
+      this.message = '';
+    },
   },
 };
 </script>
