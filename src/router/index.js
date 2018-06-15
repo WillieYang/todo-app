@@ -10,6 +10,7 @@ import SignUp from '@/components/Authentication/SignUp';
 import ECharts from '@/components/eCharts/ECharts';
 import Info from '@/components/gistack/Info';
 import SocketIO from '@/components/socketIO/SocketChat';
+import UnitTest from '@/components/unitTest/UnitTest';
 
 Vue.use(Router);
 
@@ -65,6 +66,11 @@ export default new Router({
       path: '/socketIO',
       name: 'SocketIO',
       component: SocketIO,
+    },
+    {
+      path: '/unitTest',
+      name: 'unitTest',
+      component: UnitTest,
     },
   ],
 });
