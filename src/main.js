@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 // import enLocale from 'element-ui/lib/locale/lang/en';
 // import zhLocale from 'element-ui/lib/locale/lang/zh-CN';
-import '../theme/red/index.css';
+import '../theme/black/index.css';
 import App from './App';
 import router from './router';
 import store from './store';
