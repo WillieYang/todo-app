@@ -80,7 +80,7 @@ export default {
       console.log('Black');
     },
     setRed() {
-      this.themeColour = 'black';
+      this.themeColour = 'red';
       console.log('Red');
     },
     toggleClass(element, className) {
