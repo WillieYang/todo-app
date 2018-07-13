@@ -21,6 +21,15 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
           <b-button v-on:click="switchLocale" variant="success" size="sm">Language</b-button>
+          <el-dropdown>
+            <el-button type="primary">
+              更换皮肤<i class="el-icon-arrow-down el-icon--right"></i>
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item><div @click="setBlack">黑色</div></el-dropdown-item>
+              <el-dropdown-item><div @click="setRed">红色</div></el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -36,6 +45,28 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+    };
+  },
+  computed: {
+    themeColour: {
+      get() {
+        return this.$store.getters.getColour;
+      },
+      set(val) {
+        this.$store.commit('setThemeColour', val);
+      },
+    },
+  },
+  watch: {
+    themeColour(val) {
+      this.toggleClass(document.body, `theme-${val}`);
+    },
+  },
+  mounted() {
+    this.toggleClass(document.body, `theme-${this.themeColour}`);
+  },
   methods: {
     switchLocale() {
       if (this.$i18n.locale === 'en') {
@@ -43,6 +74,17 @@ export default {
       } else if (this.$i18n.locale === 'cn') {
         this.$i18n.locale = 'en';
       }
+    },
+    setBlack() {
+      this.themeColour = 'black';
+      console.log('Black');
+    },
+    setRed() {
+      this.themeColour = 'black';
+      console.log('Red');
+    },
+    toggleClass(element, className) {
+      element.className = className;
     },
   },
 };
