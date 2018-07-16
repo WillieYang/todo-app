@@ -45,6 +45,7 @@
 <script>
 import '../src/assets/css/theme/black/index.css';
 import '../src/assets/css/theme/red/index.css';
+import '../src/assets/css/common.css';
 
 export default {
   name: 'App',

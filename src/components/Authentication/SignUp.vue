@@ -133,7 +133,9 @@
           </b-form>
         </el-dialog>
       </b-col>
-      <b-col></b-col>
+      <b-col>
+        <button :class="classColour">LIFE</button>
+      </b-col>
     </b-row>
   </div>
 </template>
@@ -159,6 +161,16 @@ export default {
       modalVisible: false,
     };
   },
+  computed: {
+    classColour: {
+      get() {
+        console.log(`common--${this.$store.getters.getColour}`);
+        return `common--${this.$store.getters.getColour}`;
+      },
+      set() {},
+    },
+  },
+  mounted() {},
   validations: {
     userInfo: {
       firstName: {

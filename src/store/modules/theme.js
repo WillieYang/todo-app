@@ -3,7 +3,7 @@
 /* eslint-env es6 */
 
 const state = {
-  themeColour: [],
+  themeColour: ['blue'],
 };
 
 const getters = {
