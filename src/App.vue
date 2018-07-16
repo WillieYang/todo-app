@@ -43,6 +43,9 @@
 </template>
 
 <script>
+import '../src/assets/css/theme/black/index.css';
+import '../src/assets/css/theme/red/index.css';
+
 export default {
   name: 'App',
   data() {
