@@ -27,4 +27,9 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Attentions
+``` bash
+1. For the utilization of socket.io library, it is necessary to start the socket server in the directory of /server/.. by using command:  node app.js 
+
+```
+
