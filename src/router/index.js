@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
-import TodoApp from '@/components/todo/TodoApp';
-import HomePage from '@/components/HomePage';
-import Coins from '@/components/crytoCoin/CrytoCoins';
-import Coin from '@/components/crytoCoin/Coin';
-import ProductList from '@/components/productList/ProductList';
-import SignUp from '@/components/Authentication/SignUp';
-import ECharts from '@/components/eCharts/ECharts';
-import Info from '@/components/gistack/Info';
-import SocketIO from '@/components/socketIO/SocketChat';
-import UnitTest from '@/components/unitTest/UnitTest';
+// import HelloWorld from '@/components/HelloWorld';
+// import TodoApp from '@/components/todo/TodoApp';
+// import HomePage from '@/components/HomePage';
+// import Coins from '@/components/crytoCoin/CrytoCoins';
+// import Coin from '@/components/crytoCoin/Coin';
+// import ProductList from '@/components/productList/ProductList';
+// import SignUp from '@/components/Authentication/SignUp';
+// import ECharts from '@/components/eCharts/ECharts';
+// import Info from '@/components/gistack/Info';
+// import SocketIO from '@/components/socketIO/SocketChat';
+// import UnitTest from '@/components/unitTest/UnitTest';
 
 Vue.use(Router);
 
@@ -20,57 +20,57 @@ export default new Router({
     {
       path: '/hello',
       name: 'Hello',
-      component: HelloWorld,
+      component: () => import('@/components/HelloWorld'),
     },
     {
       path: '/todo',
       name: 'Todo',
-      component: TodoApp,
+      component: () => import('@/components/todo/TodoApp'),
     },
     {
       path: '',
       name: 'Home',
-      component: HomePage,
+      component: () => import('@/components/HomePage'),
     },
     {
       path: '/coins',
       name: 'Coins',
-      component: Coins,
+      component: () => import('@/components/crytoCoin/CrytoCoins'),
     },
     {
       path: '/coins/:id',
       name: 'Coin',
-      component: Coin,
+      component: () => import('@/components/crytoCoin/Coin'),
     },
     {
       path: '/productList',
       name: 'ProductList',
-      component: ProductList,
+      component: () => import('@/components/productList/ProductList'),
     },
     {
       path: '/signUp',
       name: 'SignUp',
-      component: SignUp,
+      component: () => import('@/components/Authentication/SignUp'),
     },
     {
       path: '/echarts',
       name: 'ECharts',
-      component: ECharts,
+      component: () => import('@/components/eCharts/ECharts'),
     },
     {
       path: '/info',
       name: 'GistackInfo',
-      component: Info,
+      component: () => import('@/components/gistack/Info'),
     },
     {
       path: '/socketIO',
       name: 'SocketIO',
-      component: SocketIO,
+      component: () => import('@/components/socketIO/SocketChat'),
     },
     {
       path: '/unitTest',
       name: 'unitTest',
-      component: UnitTest,
+      component: () => import('@/components/unitTest/UnitTest'),
     },
   ],
 });
