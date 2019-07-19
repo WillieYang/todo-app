@@ -32,4 +32,8 @@ npm test
 1. For the utilization of socket.io library, it is necessary to start the socket server in the directory of /server/.. by using command:  node app.js 
 
 ```
+## Jenkins
+
+Build Test
+
 
